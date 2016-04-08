@@ -3,12 +3,12 @@ var app = require('../server');
 
 var apiController = {
 
-	index: function (req, res) {
-		res.json({
-			message: "You made it to the api!",
-   	 	documentation_url: "https://github.com/nscalf561/Roommate-App.git",
-    	base_url: "TBD",
-    	endpoints: [
+      index: function (req, res) {
+            res.json({
+                  message: "You made it to the api!",
+            documentation_url: "https://github.com/nscalf561/Roommate-App.git",
+      base_url: "TBD",
+      endpoints: [
       {method: "GET", path: "/api", description: "Describes available endpoints"},
 
       //user endpoints
@@ -49,9 +49,15 @@ var apiController = {
       {method: "GET", path: "/api/households/:hid/completedChores/:id", description: "See individual completed chore details"},
       {method: "DELETE", path: "/api/households/:hid/completedChores/:id", description: "Delete an instance of a completed chore"},   
       
+
+      //purchased supply endpoints
+      {method: "GET", path: "/api/households/:hid/purchasedSupplies", description: "See a list of all purchased household supplies"},
+      {method: "POST", path: "/api/households/:hid/purchasedSupplies", description: "Create a new instance of a purchased supply for a particular household"},
+      {method: "GET", path: "/api/households/:hid/purchasedSupplies/:id", description: "See individual purchased supply details"},
+      {method: "DELETE", path: "/api/households/:hid/purchasedSupplies/:id", description: "Delete an instance of a purchased supply"},   
       ]
-		});
-	}
+            });
+      }
 
 };
 
